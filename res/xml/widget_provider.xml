@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:initialLayout="@layout/widget" 
+    android:minWidth="250dip" 
+    android:minHeight="110dip" 
+    android:updatePeriodMillis="7200000" 
+    android:resizeMode="horizontal|vertical" 
+    android:widgetCategory="home_screen|keyguard" 
+    android:previewImage="@drawable/preview_image" 
+    android:configure="dixi.soft.fx_watcher.main.UserDataDialogActivity">
+</appwidget-provider>
