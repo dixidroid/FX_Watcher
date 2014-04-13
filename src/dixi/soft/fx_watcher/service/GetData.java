@@ -155,9 +155,15 @@ public class GetData extends AsyncTask<Void, Integer, Void> {
 			Document doc = Jsoup.parse(s);
 			Elements table = doc.select("tr.dt_actual");
 
-			// Save data to preferences
+			if (table.size() == 0) {
+				publishProgress(2);
+				publishProgress(0);
+				return null;
+			} 
+			
 			PammData.clearPammData();
-
+				
+			// Save data
 			for (int i = 0; i < table.size(); i++) {
 				Elements td = table.get(i).children();
 				if (td.size() > 1 && td.size() > 6) {
@@ -169,10 +175,7 @@ public class GetData extends AsyncTask<Void, Integer, Void> {
 				}
 			}
 			
-			if (table.size() == 0) {
-				PammData.clearPammData();
-				publishProgress(2);
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			// Error of getting data
